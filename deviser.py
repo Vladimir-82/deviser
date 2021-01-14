@@ -23,6 +23,5 @@ for i in members:
     contribution_list.append(i.contribusion)
 middle = sum(contribution_list)/numbers
 
-for i in contribution_list:
-    if i.contribusion > middle:
+
 
