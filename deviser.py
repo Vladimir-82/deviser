@@ -1,3 +1,7 @@
+'''
+определяет сумму кто кому сколько должен
+при солидарном участии
+'''
 class Person:
     def __init__(self, name, contribusion):
         self.name = name
@@ -5,15 +9,6 @@ class Person:
 
     def get_info(self):
         return self.name, self.contribusion
-
-def sep(credit_list, debit_list, middle):
-    pass
-    #for i in credit_list:
-        #for j in debit_list:
-            #j.contribusion = j.contribusion - (j.contribusion - middle)
-            #i.contribusion = i.contribusion + (j.contribusion - middle)
-
-
 
 members = []
 credit_members = []
@@ -36,11 +31,15 @@ if len(credit_members) < 1:
 else:
     for i in credit_members:
         for j in debit_members:
-            if middle - i.contribusion <= j.contribusion - middle:
-                i.contribusion = i.contribusion + (middle - i.contribusion)
-                j.contribusion = middle
-
-            else:
+            if middle - i.contribusion < j.contribusion - middle:
+                if middle - i.contribusion != 0:
+                    print(i.name, 'должен', j.name, round(middle - i.contribusion, 2), 'рублей')
                 i.contribusion = middle
                 j.contribusion = j.contribusion - (middle - i.contribusion)
+
+            else:
+                if j.contribusion - middle != 0:
+                    print(i.name, 'должен', j.name, round(j.contribusion - middle, 2), 'рублей')
+                i.contribusion = i.contribusion + j.contribusion - middle
+                j.contribusion = middle
 
