@@ -34,6 +34,13 @@ for i in members:
 if len(credit_members) < 1:
     print('никто никому ничего не должен!!!')
 else:
-    for i in
+    for i in credit_members:
+        for j in debit_members:
+            if middle - i.contribusion <= j.contribusion - middle:
+                i.contribusion = i.contribusion + (middle - i.contribusion)
+                j.contribusion = middle
 
+            else:
+                i.contribusion = middle
+                j.contribusion = j.contribusion - (middle - i.contribusion)
 
