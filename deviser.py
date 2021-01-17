@@ -29,12 +29,13 @@ for i in members:
 if len(credit_members) < 1:
     print('никто никому ничего не должен!!!')
 else:
+
     for i in credit_members:
         for j in debit_members:
             if middle - i.contribusion < j.contribusion - middle:
                 if middle - i.contribusion != 0:
                     print(i.name, 'должен', j.name, round(middle - i.contribusion, 2), 'руб.')
-                i.contribusion = middle
+                i.contribusion = i.contribusion + (middle - i.contribusion)
                 j.contribusion = j.contribusion - (middle - i.contribusion)
 
             else:
@@ -44,3 +45,9 @@ else:
                 j.contribusion = middle
     print('Общие затраты:', round(sum(contribution_list), 2), 'руб.')
     print('Сумма с каждого', round(middle, 2), 'руб.')
+
+    for i in credit_members:
+        print(i.contribusion)
+    print()
+    for i in debit_members:
+        print(i.contribusion)
